@@ -24,12 +24,7 @@ export default function BaseDeDatos() {
     { field: 'texturas', headerName: 'Texturas', width: 250, filterable: true },
     { field: 'textos', headerName: 'Textos', width: 800, filterable: true },
     { field: 'determinadores', headerName: 'Determinadores', width: 800, filterable: true },
-    // { field: 'planta', headerName: 'Planta', width: 120, filterable: true },
-    // { field: 'nombre', headerName: 'Nombre', width: 200, filterable: true }, 
-    // { field: 'traduccion', headerName: 'Traducción', width: 200, filterable: true },
-    // { field: 'uso', headerName: 'Uso', width: 200, filterable: true },
-    // { field: 'textos', headerName: 'Textos', width: 1000, filterable: true },
-    // // Agrega más columnas según tu vista
+    // Agrega más columnas según tu vista <here>
   ];
 
   useEffect(() => {
@@ -47,26 +42,24 @@ export default function BaseDeDatos() {
   }, []);
 
   return (
-    <Box sx={{ height: 450, width: 1}}>
+    <Box sx={{ height: '70vh', width:'100%'}}>
       <DataGrid
         rows={data}
         columns={columns}
         loading={loading}
         getRowId={(row) => `${row.id_planta}_${row.nombre}`}
-        disableColumnFilter
-        disableColumnSelector
-        disableDensitySelector
+        //disableColumnFilter //disableColumnSelector //disableDensitySelector
+        disableRowSelectionOnClick
         slots={{ toolbar: GridToolbar }}
         slotProps={{
           toolbar: {
             showQuickFilter: true,
             quickFilterProps: {
-                debounceMs: 500, // Retraso en milisegundos para el filtro rápido
+                debounceMs: 250, // Retraso en milisegundos para el filtro rápido
               },
           },
         }}
         />
-
     </Box>
   );
 }

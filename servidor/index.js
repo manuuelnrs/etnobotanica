@@ -4,8 +4,10 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors')
 const app = express();
+const path = require('path');
 
-const PORT = process.env.PORT || 3001;
+
+const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
@@ -65,9 +67,22 @@ app.get('/plantas/:id_planta', (req, res) => {
   });
 });
 
+app.get('/metadatos/:filename', (req, res) => {
+  const filename = decodeURIComponent(req.params.filename); // Decodificar nombre del archivo
+  const filePath = path.join(__dirname, 'public', 'metadatos', filename);
+
+  res.download(filePath, filename, (err) => {
+    if (err) {
+      console.error('Archivo no encontrado:', err);
+      res.status(404).send('Archivo no encontrado');
+    }
+  });
+});
+
+
 // Endpoint para consultar /base-de-datos
 app.get('/base-de-datos', (req, res) => {
-  const query = 'SELECT * FROM plantas_novohispanas.vista_general;';
+  const query = 'SELECT * FROM vista_general_cached;';
   db.query(query, (err, results) => {
     if (err) {
       console.error('Error al ejecutar la consulta:', err);
@@ -80,5 +95,5 @@ app.get('/base-de-datos', (req, res) => {
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://${process.env.DB_HOST}:${PORT}`);
+  console.log(`Servidor corriendo.. PORT: ${PORT}`);
 });

@@ -1,0 +1,49 @@
+.nombre-toñito {
+    display: inline-block;
+  }
+  
+  .correo {
+    margin-left: 10px; /* Añade espacio entre el nombre y el correo */
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .correo:hover {
+    text-decoration: underline;
+  }
+  
+
+.creditos-box {
+    background-color: #f8f9fa; /* Fondo claro para los créditos */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #ddd; /* Borde sutil */
+  }
+  
+  .creditos-box a {
+    color: #007bff; /* Color de los enlaces */
+    text-decoration: none;
+  }
+  
+  .creditos-box a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+  }
+  
+  .creditos-box strong {
+    font-weight: bold;
+  }
+  
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  h5 {
+    margin-top: 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  

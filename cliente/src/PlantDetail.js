@@ -46,7 +46,7 @@ function PlantDetail() {
     return <div>Sin información disponible</div>;
   }
 
-  const { imagen_url, nombres, determinadores, toponimos, padecimientos, referencias } = plantDetail;
+  const { imagen_url, metadatos, nombres, determinadores, toponimos, padecimientos, referencias } = plantDetail;
 
   return (
     <Container>
@@ -65,12 +65,20 @@ function PlantDetail() {
           <ListGroup.Item><strong>Determinadores:</strong> {determinadores || 'No disponible'}</ListGroup.Item>
           <ListGroup.Item><strong>Padecimientos tratados:</strong> {padecimientos || 'No disponible'}</ListGroup.Item>
           <ListGroup.Item><strong>Referencias:</strong> {referencias || 'No disponible'}</ListGroup.Item>
-          <ListGroup.Item>
-            <a href="./propuesta.pdf" download className="download-link" target="_blank" rel="noopener noreferrer">
-              <FaFilePdf size={20} style={{ marginRight: '8px' }} />
-              Descargar metadatos de la planta
-            </a>
-          </ListGroup.Item>
+          {metadatos ? (
+            <ListGroup.Item>
+              <a
+                href={`${API_URL}/metadatos/${encodeURIComponent(metadatos)}`} download className="download-link"
+                  target="_blank" rel="noopener noreferrer">
+                  <FaFilePdf size={20} style={{ marginRight: '8px' }} />
+                    Descargar metadatos
+              </a>
+            </ListGroup.Item>
+          ) : (
+            <ListGroup.Item>
+              <em>No hay metadatos disponibles</em>
+            </ListGroup.Item>
+          )}
         </ListGroup>
       </Card>
     </Container>

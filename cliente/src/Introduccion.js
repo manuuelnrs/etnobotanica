@@ -1,6 +1,7 @@
 // Introduccion.js
 import React from 'react';
 import { FaFilePdf } from 'react-icons/fa';
+import './Introduccion.css'; // Si prefieres estilos adicionales en un archivo externo.
 
 function Introduccion() {
   return (
@@ -16,28 +17,40 @@ function Introduccion() {
 	Sirva pues, el presente sitio, de contribución para todos aquellos estudiosos tanto de la historia de la medicina, los estudios etnobotánicos de carácter histórico, los estudios de carácter ambiental o simplemente para cualquier persona con interés en el conocimiento de la flora de lo que hoy es el centro y sur de México y de sus múltiples usos.
       </p>
 
-      {/* Enlace de descarga del PDF */}
-      <a href="./propuesta.pdf" download className="download-link">
-            <FaFilePdf size={20} style={{ marginRight: '8px' }} />
+      <p>
+          <a href="./propuesta.pdf" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <FaFilePdf size={20} style={{ marginRight: '8px' }} />
             Avances de investigación
-      </a>
+          </a>
+        </p>
+
+      <hr /> {/* Línea horizontal para separar las secciones */}
 
       <h5>Créditos</h5>
-      <p>
-        El presente proyecto forma parte de las actividades del Dr. José Antonio Soto Luna durante su estancia
-        postdoctoral en el Centro de Investigaciones y Estudios Superiores en Antropología Social - CDMX,
-        bajo la dirección académica de la Dra. Mariana Favila Vázquez, y financiado por el Consejo Nacional de
-        Humanidades, Ciencias y Tecnologías.
-      </p>
-      <p>
-        Investigación y diseño de la base de datos: José Antonio Soto Luna
-      </p>
-      <p>
-        Diseño página web: Juan Manuel Nava Rosales (ucme_500@hotmail.com)
-      </p>
-      <p>
-        Contacto: etnobotanica2015@gmail.com
-      </p>
+
+      <div className="creditos-box p-4 mb-4 shadow-lg">
+        <p>
+          <strong>Proyecto y Dirección:</strong><br />
+          El presente proyecto forma parte de las actividades del Dr. José Antonio Soto Luna durante su estancia
+          postdoctoral en el Centro de Investigaciones y Estudios Superiores en Antropología Social - CDMX,
+          bajo la dirección académica de la Dra. Mariana Favila Vázquez, y financiado por el Consejo Nacional de
+          Humanidades, Ciencias y Tecnologías.
+        </p>
+
+        <p>
+          <strong>Investigación y diseño de la base de datos: </strong> 
+          <span className="nombre-toñito">
+            José Antonio Soto Luna <a href="mailto:etnobotanica2015@gmail.com" className="correo">etnobotanica2015@gmail.com</a>
+          </span>
+        </p>
+
+        <p>
+          <strong>Desarrollo Sitio Web: </strong> 
+          <span className="nombre-toñito">
+          Juan Manuel Nava Rosales <a href="mailto:ucme_500@hotmail.com" className="correo">ucme_500@hotmail.com</a>
+          </span>
+        </p>
+      </div>
     </div>
   );
 }
